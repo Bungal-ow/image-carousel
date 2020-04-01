@@ -12,4 +12,6 @@ app.use(bodyParser.json())
 
 
 app.get('/api/gethomepictures', handlers.handleGet)
+
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

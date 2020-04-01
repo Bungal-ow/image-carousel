@@ -7,10 +7,10 @@ const Sequelize = require('sequelize')
 const masterArr = require('./masterArr.js') // **
 // above is a nested array of all the url's to pictures for each home
 
-const sequelize = new Sequelize('fake_data', 'root', 'hello', {
+const sequelize = new Sequelize('fake_data', 'root', null, {
   host: 'localhost',
   dialect: 'mysql'
-})
+})  
 
 const FakeHouse = sequelize.define("fakeHouse", {
   address: Sequelize.TEXT,
