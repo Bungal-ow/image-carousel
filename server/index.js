@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 
-app.get('/api/gethomepictures', handlers.handleGet)
+app.get('/api/property', handlers.handleGet)
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
