@@ -17,5 +17,5 @@ CREATE TABLE photos (
   PRIMARY KEY(propId, id)
 )
 
-COPY properties (id, address) FROM './seeder/csvFiles/properties.csv' WITH DELIMITER=',' AND HEADER=TRUE;
-COPY photos (propId, id, url) FROM './seeder/csvFiles/photos.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+COPY properties (id, address) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/properties.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+COPY photos (propId, id, url) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/properties.csv' WITH DELIMITER=',' AND HEADER=TRUE;
