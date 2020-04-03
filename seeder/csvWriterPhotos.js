@@ -50,7 +50,7 @@ let writeInChunks = () => {
         batches += 1;
         let records = generateAllRecords();
         csvWriter.writeRecords(records)
-            .then(() => append());
+            .then(() => writeInChunks());
     } else {
         console.timeEnd('writeCSV');
         console.log('Great job, Bradley. You have generated the photos CSV');
