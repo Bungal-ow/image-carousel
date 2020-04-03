@@ -19,4 +19,4 @@ CREATE TABLE photos (
 )
 
 COPY properties (propId, address) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/properties.csv'  DELIMITER',' CSV HEADER;
-COPY photos (propId, id, url) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/photos.csv'  DELIMITER=',' CSV HEADER;
+COPY photos (propId, id, url) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/photos.csv'  DELIMITER',' CSV HEADER;
