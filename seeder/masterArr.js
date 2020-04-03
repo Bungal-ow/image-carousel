@@ -1930,4 +1930,4 @@ const masterArr = [
     ]
 ]
 
-module.exports = masterArr
+module.exports = masterArr;

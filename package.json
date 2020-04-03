@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon ./server/index.js",
-    "csv": "node seeder/csvWriter.js",
+    "csvProps": "node seeder/csvWriterProperties.js",
+    "csvPhotos": "node seeder/csvWriterPhotos.js",
     "bundle": "webpack -w"
   },
   "repository": {
