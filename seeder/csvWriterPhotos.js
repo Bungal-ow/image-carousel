@@ -45,17 +45,17 @@ const generateAllRecords = () => {
 
 let batches = 0;
 
-let append = () => {
+let writeInChunks = () => {
     if (batches < 100000) {
         batches += 1;
-        let data = generateAllRecords();
-        csvWriter.writeRecords(data)
+        let records = generateAllRecords();
+        csvWriter.writeRecords(records)
             .then(() => append());
     } else {
         console.timeEnd('writeCSV');
-        console.log('The CSV file was written successfully');
+        console.log('Great job, Bradley. You have generated the photos CSV');
     }
 };
 
 console.time('writeCSV');
-append();
+writeInChunks();
