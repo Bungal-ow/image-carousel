@@ -39,6 +39,8 @@ const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+let propNum = 1;
+
 const generate100Records = () => {
     let records = [];
 
@@ -54,7 +56,7 @@ const generate100Records = () => {
 
             let record = {
                 id: uuid,
-                propId: property + 1,
+                propId: propNum,
                 url: photoURL,
                 price: price,
                 beds: beds,
@@ -63,6 +65,7 @@ const generate100Records = () => {
             };
             records.push(record);
         }
+        propNum++;
     }
     return records;
 }
