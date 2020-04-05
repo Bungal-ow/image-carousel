@@ -5,18 +5,21 @@ CREATE DATABASE IF NOT EXISTS listings;
 USE listings;
 
 CREATE TABLE properties (
-   propId INT,
-   address TEXT,
-   PRIMARY KEY(propId)
+   id SERIAL,
+   price INT NOT NULL,
+   beds INT NOT NULL,
+   baths INT NOT NULL,
+   sqft INT NOT NULL,
+   PRIMARY KEY(id)
 );
 
 CREATE TABLE photos (
-  propId INT,
-  id INT NOT NULL,
-  url TEXT,
-  PRIMARY KEY(id),
-  FOREIGN KEY (propId) REFERENCES properties (propId)
+  propId INT NOT NULL,
+  id SERIAL,
+  url TEXT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (propId) REFERENCES properties (id)
 )
 
-COPY properties (propId, address) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/properties.csv'  DELIMITER',' CSV HEADER;
-COPY photos (propId, id, url) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/csvFiles/photos.csv'  DELIMITER',' CSV HEADER;
+COPY properties (id, price, beds, baths, sqft) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/postgres/csvFiles/properties.csv'  DELIMITER',' CSV HEADER;
+COPY photos (propId, id, url) FROM '/Users/bradleyzazzara/Desktop/image-carousel/seeder/postgres/csvFiles/photos.csv'  DELIMITER',' CSV HEADER;
