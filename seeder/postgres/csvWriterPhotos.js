@@ -1,8 +1,8 @@
-const masterArrTrim = require('./masterArrTrim.js')
+const masterArrTrim = require('../masterArrTrim.js')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const csvWriter = createCsvWriter({
-    path: './seeder/csvFiles/photos.csv',
+    path: './seeder/postgres/csvFiles/photos2.csv',
     header: [{
             id: 'propId',
             title: 'propId'
@@ -18,15 +18,15 @@ const csvWriter = createCsvWriter({
     ]
 });
 
-let num = 1;
-let propNum = 1
+let num = 55250001;
+let propNum = 5000001;
 
 const generateAllRecords = () => {
     let records = [];
 
     for (let j = 0; j < masterArrTrim.length; j++) {
         for (let k = 0; k < masterArrTrim[j].length; k++) {
-            let photoURL = masterArrTrim[j][k];
+            let photoURL = masterArrTrim[j][k].slice(59);
 
             let record = {
                 propId: propNum,
@@ -46,7 +46,7 @@ const generateAllRecords = () => {
 let batches = 0;
 
 let writeInChunks = () => {
-    if (batches < 100000) {
+    if (batches < 50000) {
         batches += 1;
         let records = generateAllRecords();
         csvWriter.writeRecords(records)

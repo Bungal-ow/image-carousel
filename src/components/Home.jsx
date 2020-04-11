@@ -20,17 +20,21 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    let otherThis = this
+    let otherThis = this;
+    let randNum = Math.floor(Math.random() * (10000000 - 1) + 1)
     axios({
       method: 'GET',
-      url: '/api/gethomepictures'
+      url: `/api/photos/${randNum}`
     })
       .then(function (response) {
+        let first = 'https://image-carousel.s3.us-west-1.amazonaws.com/fakeHouse' + response.data[0].url;
+        let others = response.data.slice(1);
+        let urls = others.map( link => `https://image-carousel.s3.us-west-1.amazonaws.com/fakeHouse${link.url}`)
         // set the state to contain our fakeHouse data
+        console.log(urls)
         otherThis.setState({
-          fakeHouse: response.data.fakeHouse[0],
-          fakeUrls: response.data.fakeUrls,
-          firstHouse: response.data.fakeUrls[0]
+          fakeUrls: urls,
+          firstHouse: first
         })
       })
   }
@@ -51,11 +55,11 @@ class Home extends React.Component {
     return (
       <div>
       <TopImageContainer>
-      <TopImage src={this.state.firstHouse.url}>
+      <TopImage src={this.state.firstHouse}>
         </TopImage></TopImageContainer>
       <Container>
         {this.state.fakeUrls.map( (obj, index) => (
-        <Box src={obj.url} onClick={() => {this.setState({slideShow: true, currentIndex: index})}} key={index} bgColor='red' image={obj.url}>
+        <Box src={obj} onClick={() => {this.setState({slideShow: true, currentIndex: index})}} key={index} bgColor='red' image={obj}>
         </Box>
         ))}
       </Container></div>

@@ -43,7 +43,7 @@ class SlideShow extends React.Component {
       return (
           <TopImageContainer className="slideshow" style={{backgroundColor: 'dimgrey'}}>
             <Arrow1 direction="left" clickFunction={ this.previousSlide } />
-            <TopImage src={this.props.urls[this.state.currentImageIndex].url}>
+            <TopImage src={this.props.urls[this.state.currentImageIndex]}>
               
               
         </TopImage>

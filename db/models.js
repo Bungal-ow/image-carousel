@@ -9,7 +9,7 @@ const insertPhoto = (url, propId, callback) => {
 
 // Read
 const fetchPhotos = (propId, callback) => {
-    const query = 'SELECT * FROM photos WHERE propId = $1';
+    const query = 'SELECT url FROM photos WHERE propId = $1';
     pool.query(query, [propId], callback)
 }
 

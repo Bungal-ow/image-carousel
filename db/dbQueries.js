@@ -4,7 +4,7 @@ const sequelize = new Sequelize('fake_data', 'root', null, {
   host: 'localhost',
   dialect: 'mysql'
 });
-
+    
 
 const getPictures = async (callback) => {
     let randNum = Math.floor(Math.random() * (100 - 1) + 1)

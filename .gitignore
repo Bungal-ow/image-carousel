@@ -4,3 +4,6 @@ node_modules
 ### CSV Files
 seeder/cassandra/csvFiles/*
 seeder/postgres/csvFiles/*
+
+## New Relic
+newrelic.js

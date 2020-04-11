@@ -5,7 +5,7 @@ CREATE KEYSPACE IF NOT EXISTS listings WITH REPLICATION = {'class': 'SimpleStrat
 USE listings;
 
 CREATE TABLE photos (
-  id UUID,
+  id   UUID,
   propId int,
   url text,
   price int,
