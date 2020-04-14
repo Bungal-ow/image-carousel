@@ -1,4 +1,4 @@
-// require('newrelic');
+require('newrelic');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const express = require('express'); 
@@ -29,6 +29,11 @@ if (cluster.isMaster) {
     // This is Workers can share any TCP connection
     // It will be initialized using express
     console.log(`Worker ${process.pid} started`);
+
+    app.get('/loaderio-fd23cc23d7da2808c4206a8abf75fcd1.txt', (req, res) => {
+        res.sendFile(`${__dirname}/loaderio-fd23cc23d7da2808c4206a8abf75fcd1.txt`)
+      });
+      
 
     app.get('/api/photos/:propId', Controller.getPhotos)
     app.post('/api/photos/:propId', Controller.addPhoto)

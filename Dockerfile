@@ -10,6 +10,7 @@ WORKDIR /src/app
 # What source code do you what to copy, and where to put it?
 COPY . /src/app
 
+RUN apt-get update && apt-get install -y vim
 # Does your app have any dependencies that should be installed?
 RUN npm install
 

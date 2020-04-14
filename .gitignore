@@ -6,4 +6,4 @@ seeder/cassandra/csvFiles/*
 seeder/postgres/csvFiles/*
 
 ## New Relic
-newrelic.js
+# newrelic.js
