@@ -1,7 +1,7 @@
 // require('newrelic');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-const express = require('express'); 
+const express = require('express');
 const app = express();
 const port = 3004;
 const bodyParser = require('body-parser');
@@ -9,7 +9,9 @@ const path = require('path');
 const Controller = require('./controller.js');
 
 app.use(express.static(path.resolve(__dirname, '../dist/')));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 
 if (cluster.isMaster) {
@@ -30,10 +32,9 @@ if (cluster.isMaster) {
     // It will be initialized using express
     console.log(`Worker ${process.pid} started`);
 
-    app.get('/loaderio-fd23cc23d7da2808c4206a8abf75fcd1.txt', (req, res) => {
-        res.sendFile(`${__dirname}/loaderio-fd23cc23d7da2808c4206a8abf75fcd1.txt`)
-      });
-      
+    app.get('/loaderio-b61df53ef6fdb52a94576b8f7d09c336.txt', (req, res) => {
+        res.sendFile(`${__dirname}/loaderio-b61df53ef6fdb52a94576b8f7d09c336.txt`)
+    });
 
     app.get('/api/photos/:propId', Controller.getPhotos)
     app.post('/api/photos/:propId', Controller.addPhoto)
@@ -42,8 +43,3 @@ if (cluster.isMaster) {
 
     app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 }
-
-
-
-
-
